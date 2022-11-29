@@ -10,18 +10,18 @@ export default class Slide {
     }
 
     moveSlide(distX) {
+        this.dist.moveFinal = distX;
         this.slide.style.transform = `translate3d(${distX}px, 0, 0)`;
     }
 
     updatePosition(clientX) {
         this.dist.moviment = this.dist.startMouseX - clientX;
-        return this.dist.moviment;
+        return this.dist.finalPosition + this.dist.moviment;
     }
 
     onStart(event) {
         event.preventDefault();
         this.dist.startMouseX = event.clientX;
-        // console.log(this.dist.startMouseX);
         this.wrapper.addEventListener("mousemove", this.onMove);
     }
 
@@ -36,6 +36,7 @@ export default class Slide {
     onEnd(event) {
         // console.log("finaliza");
         this.wrapper.removeEventListener("mousemove", this.onMove);
+        this.dist.finalPosition = this.dist.moveFinal;
     }
 
     addSlideEvents() {
