@@ -6,16 +6,25 @@ export default class Slide {
 
     onStart(event) {
         event.preventDefault();
-        console.log(event);
+        console.log("mousedown");
+    }
+
+    onMove(event) {
+        console.log("moveu");
     }
 
     addSlideEvents() {
         this.wrapper.addEventListener("mousedown", this.onStart);
     }
 
-    init() {
-        this.addSlideEvents();
+    bindEvents() {
+        this.onStart = this.onStart.bind(this);
+        this.onMove = this.onMove.bind(this);
+    }
 
+    init() {
+        this.bindEvents();
+        this.addSlideEvents();
         return this;
     }
 }
