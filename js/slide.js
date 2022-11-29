@@ -9,6 +9,10 @@ export default class Slide {
         };
     }
 
+    updatePosition(clientX) {
+        this.dist.moviment = this.dist.startMouseX - clientX;
+    }
+
     onStart(event) {
         event.preventDefault();
         this.dist.startMouseX = event.clientX;
