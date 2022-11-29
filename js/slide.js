@@ -21,17 +21,20 @@ export default class Slide {
     onStart(event) {
         event.preventDefault();
         this.dist.startMouseX = event.clientX;
-        console.log(this.dist.startMouseX);
+        // console.log(this.dist.startMouseX);
         this.wrapper.addEventListener("mousemove", this.onMove);
     }
 
     onMove(event) {
-        const finalPosition = this.updatePosition(this.startMouseX);
+        const finalPosition = this.updatePosition(event.clientX);
         this.moveSlide(finalPosition);
+
+        // console.log(this.dist.startMouseX - event.clientX);
+        // const finalPosition = this.updatePosition(this.startMouseX);
     }
 
     onEnd(event) {
-        console.log("finaliza");
+        // console.log("finaliza");
         this.wrapper.removeEventListener("mousemove", this.onMove);
     }
 
