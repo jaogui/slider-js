@@ -27,6 +27,7 @@ export default class Slide {
 
     onMove(event) {
         const finalPosition = this.updatePosition(this.startMouseX);
+        this.moveSlide(finalPosition);
     }
 
     onEnd(event) {
