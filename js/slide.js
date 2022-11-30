@@ -61,9 +61,16 @@ export default class Slide {
         this.onEnd = this.onEnd.bind(this);
     }
 
+    //Slides config
+    slideConfig() {
+        this.slideArray = [...this.slide.children];
+        console.log(this.slideArray);
+    }
+
     init() {
         this.bindEvents();
         this.addSlideEvents();
+        this.slideConfig();
         return this;
     }
 }
