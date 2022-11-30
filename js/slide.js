@@ -86,9 +86,10 @@ export default class Slide {
     }
 
     changeSlide(index) {
-        this.moveSlide(this.slideArray[index].postion);
+        const activeSlide = this.slideArray[index];
+        this.moveSlide(activeSlide.postion);
         this.slideIndexNav(index);
-        console.log(this.index);
+        this.dist.finalPosition = activeSlide.postion;
     }
 
     init() {
