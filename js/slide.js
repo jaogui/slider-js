@@ -61,16 +61,23 @@ export default class Slide {
         this.onEnd = this.onEnd.bind(this);
     }
 
+    slidePosition(slide) {
+        const margin = (this.wrapper.offsetWidth - slide.offsetWidth) / 2;
+        console.log(margin);
+
+        return -(slide.offsetLeft - margin);
+    }
+
     //Slides config
     slideConfig() {
         this.slideArray = [...this.slide.children].map((element) => {
-            const postion = element.offsetLeft;
-            return {
-                postion,
-                element,
-            };
+            const postion = this.slidePosition(element);
+            return { postion, element };
         });
-        console.log(this.slideArray);
+    }
+
+    changeSlide(index) {
+        this.moveSlide(this.slideArray[index].postion);
     }
 
     init() {
