@@ -76,6 +76,14 @@ export default class Slide {
         });
     }
 
+    slideIndexNav(index) {
+        this.index = {
+            prev: 0,
+            active: 0,
+            next: 0,
+        };
+    }
+
     changeSlide(index) {
         this.moveSlide(this.slideArray[index].postion);
     }
