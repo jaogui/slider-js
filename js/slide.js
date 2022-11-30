@@ -16,7 +16,7 @@ export default class Slide {
 
     updatePosition(clientX) {
         this.dist.moviment = this.dist.startMouseX - clientX;
-        return this.dist.finalPosition + this.dist.moviment;
+        return this.dist.finalPosition - this.dist.moviment;
     }
 
     onStart(event) {
