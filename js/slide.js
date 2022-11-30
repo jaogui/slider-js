@@ -63,7 +63,13 @@ export default class Slide {
 
     //Slides config
     slideConfig() {
-        this.slideArray = [...this.slide.children];
+        this.slideArray = [...this.slide.children].map((element) => {
+            const postion = element.offsetLeft;
+            return {
+                postion,
+                element,
+            };
+        });
         console.log(this.slideArray);
     }
 
