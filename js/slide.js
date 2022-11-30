@@ -78,14 +78,16 @@ export default class Slide {
 
     slideIndexNav(index) {
         this.index = {
-            prev: 0,
-            active: 0,
-            next: 0,
+            prev: index - 1,
+            active: index,
+            next: index + 1,
         };
     }
 
     changeSlide(index) {
         this.moveSlide(this.slideArray[index].postion);
+        this.slideIndexNav(index);
+        console.log(this.index);
     }
 
     init() {
