@@ -7,6 +7,8 @@ export default class Slide {
             startMouseX: 0,
             moviment: 0,
         };
+
+        this.activeClass = "active-slide";
     }
 
     moveSlide(distX) {
@@ -101,9 +103,13 @@ export default class Slide {
         this.dist.finalPosition = activeSlide.postion;
     }
 
+    changeActiveClass() {
+        this.slideArray[this.index.active].element.classList.add(this.activeClass);
+    }
+
     activePrevSlide() {
         console.log(this.index.prev);
-        // if (this.index.prev !== undefined) this.changeSlide(this.index.prev);
+        if (this.index.prev !== undefined) this.changeSlide(this.index.prev);
     }
 
     activeNextSlide() {
