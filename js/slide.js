@@ -105,6 +105,7 @@ export default class Slide {
         this.slideIndexNav(index);
         this.dist.finalPosition = activeSlide.postion;
         this.changeActiveClass();
+        this.wrapper.dispatchEvent(this.changeEvent);
     }
 
     changeActiveClass() {
@@ -193,6 +194,8 @@ export class SlideNav extends Slide {
             this.changeSlide(index);
             this.activeControlItem();
         });
+
+        this.wrapper.addEventListener('changeEvent');
     }
 
     activeControlItem() {
