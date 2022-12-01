@@ -123,7 +123,7 @@ export default class Slide {
     }
 
     onResize() {
-        console.log("teste debounce");
+        // console.log("teste debounce");
         setTimeout(() => {
             this.slideConfig();
             this.changeSlide(this.index.active);
@@ -148,5 +148,12 @@ export default class Slide {
         this.slideConfig();
         this.addResizeEvent();
         return this;
+    }
+}
+
+export class SlideNav extends Slide {
+    addArrow(prev, next) {
+        this.prevElement = document.querySelector(prev);
+        this.prevNextElement = document.querySelector(next);
     }
 }
