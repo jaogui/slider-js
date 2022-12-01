@@ -154,6 +154,11 @@ export default class Slide {
 }
 
 export class SlideNav extends Slide {
+    constructor(...args) {
+        super(...args);
+        this.bindControlEvent();
+    }
+
     addArrow(prev, next) {
         this.prevElement = document.querySelector(prev);
         this.nextElement = document.querySelector(next);
@@ -178,5 +183,33 @@ export class SlideNav extends Slide {
 
         this.wrapper.appendChild(control);
         console.log(control);
+        return control;
+    }
+
+    eventControl(item, index) {
+        item.addEventListener('click', (event) => {
+            event.preventDefault();
+            this.changeSlide(index);
+            this.activeControlItem();
+        });
+    }
+
+    activeControlItem() {
+        this.controlArray.forEach((item) =>
+            item.classList.remove(this.activeClass)
+        );
+
+        this.controlArray[this.index.active].classList.add(this.activeClass);
+    }
+
+    addControl(custromControl) {
+        this.control =
+            document.querySelector(custromControl) || this.createControl();
+        this.controlArray = [...this.control.children];
+        this.controlArray.forEach(this.eventControl);
+    }
+
+    bindControlEvent() {
+        this.eventControl = this.eventControl.bind(this);
     }
 }

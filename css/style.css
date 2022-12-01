@@ -42,3 +42,26 @@ img {
     opacity: 1;
     transform: scale(1);
 }
+
+[data-control='slide'] {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+[data-control='slide'] li {
+    width: 20px;
+    height: 20px;
+    background: #fb5;
+    border-radius: 50%;
+    overflow: hidden;
+    text-indent: -999px;
+    cursor: pointer;
+}
+
+[data-control='slide'] li.slide-active,
+[data-control='slide'] li:hover {
+    background: #e454 !important;
+}
