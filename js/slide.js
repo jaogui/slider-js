@@ -101,9 +101,13 @@ export default class Slide {
         this.moveSlide(activeSlide.postion);
         this.slideIndexNav(index);
         this.dist.finalPosition = activeSlide.postion;
+        this.changeActiveClass();
     }
 
     changeActiveClass() {
+        this.slideArray.forEach((slideItem) =>
+            slideItem.element.classList.remove(this.activeClass)
+        );
         this.slideArray[this.index.active].element.classList.add(this.activeClass);
     }
 
