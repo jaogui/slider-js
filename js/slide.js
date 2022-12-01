@@ -192,10 +192,9 @@ export class SlideNav extends Slide {
         item.addEventListener('click', (event) => {
             event.preventDefault();
             this.changeSlide(index);
-            this.activeControlItem();
         });
 
-        this.wrapper.addEventListener('changeEvent');
+        this.wrapper.addEventListener('changeEvent', this.activeControlItem);
     }
 
     activeControlItem() {
@@ -211,9 +210,12 @@ export class SlideNav extends Slide {
             document.querySelector(custromControl) || this.createControl();
         this.controlArray = [...this.control.children];
         this.controlArray.forEach(this.eventControl);
+
+        this.activeControlItem();
     }
 
     bindControlEvent() {
         this.eventControl = this.eventControl.bind(this);
+        this.activeControlItem = this.activeControlItem.bind(this);
     }
 }
