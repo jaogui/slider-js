@@ -11,6 +11,7 @@ export default class Slide {
         };
 
         this.activeClass = 'slide-active';
+        this.changeEvent = new Event('changeEvent');
     }
 
     transition(active) {
