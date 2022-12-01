@@ -8,7 +8,11 @@ export default class Slide {
             moviment: 0,
         };
 
-        this.activeClass = "active-slide";
+        this.activeClass = "slide-active";
+    }
+
+    transition(active) {
+        this.slide.style.transition = active ? "transform .3s " : "";
     }
 
     moveSlide(distX) {
@@ -32,6 +36,7 @@ export default class Slide {
             movetype = "touchmove";
         }
         this.wrapper.addEventListener(movetype, this.onMove);
+        this.transition(false);
     }
 
     onMove(event) {
@@ -48,6 +53,7 @@ export default class Slide {
         this.wrapper.removeEventListener(movetype, this.onMove);
         this.dist.finalPosition = this.dist.moveFinal;
         this.changeSlideOnEnd();
+        this.transition(true);
         // console.log("finaliza");
     }
 
