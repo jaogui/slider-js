@@ -71,7 +71,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 10px;
+    gap: 5px;
     flex-wrap: wrap;
 }
 
@@ -83,6 +83,7 @@ img {
     opacity: 0.8;
     transform: scale(0.8);
     cursor: pointer;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
 }
 
 .custom-controls li img {
@@ -90,7 +91,7 @@ img {
     height: 100%;
 }
 
-.custom-controls li.active-slider {
+.custom-controls li.slide-active {
     opacity: 1;
     transform: scale(1);
 }
