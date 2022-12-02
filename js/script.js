@@ -6,4 +6,4 @@ slide1.init();
 slide1.addArrow('.slide-prev', '.slide-next');
 
 // console.log(slide1);
-slide1.addControl();
+slide1.addControl('.custom-controls');
