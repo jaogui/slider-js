@@ -71,7 +71,7 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 25px;
     flex-wrap: wrap;
 }
 
@@ -84,6 +84,7 @@ img {
     transform: scale(0.8);
     cursor: pointer;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease;
 }
 
 .custom-controls li img {
@@ -94,4 +95,24 @@ img {
 .custom-controls li.slide-active {
     opacity: 1;
     transform: scale(1);
+}
+
+.arrow-nav {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0px;
+}
+
+.arrow-nav button {
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    color: black;
+    height: 40px;
+    width: 40px;
+    background: rgb(19, 124, 228) url('../img/arrow.svg') center center no-repeat;
+}
+
+.arrow-nav button.slide-prev {
+    transform: rotate(180deg);
 }
